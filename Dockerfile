@@ -11,7 +11,7 @@ RUN apk update \
     && curl -fSL https://github.com/mayswind/AriaNg/releases/download/${AriaNg}/aria-ng-${AriaNg}.zip -o aria2-ng.zip \
     && unzip aria2-ng.zip -d /aria2-ng\
 	&& rm -rf aria2-ng.zip \
-    && apk del .build-deps \
+    && apk del .build-deps
 
 ADD start.sh /conf-copy/start.sh
 ADD aria2.conf /conf-copy/aria2.conf
