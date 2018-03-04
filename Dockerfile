@@ -6,8 +6,9 @@ RUN apk update \
 	&& apk add --no-cache --update bash aria2 darkhttpd \
 	&& mkdir -p /conf \
 	&& mkdir -p /conf-copy \
-	&& mkdir -p /aria2-ng \
-    && apk add --no-cache --virtual .build-deps unzip curl && cd /tmp \
+	&& mkdir -p /aria2-ng 
+
+RUN apk add --no-cache --virtual .build-deps unzip curl && cd /tmp \
     && curl -fSL https://github.com/mayswind/AriaNg/releases/download/${AriaNg}/aria-ng-${AriaNg}.zip -o aria2-ng.zip \
     && unzip aria2-ng.zip -d /aria2-ng\
 	&& rm -rf aria2-ng.zip \
