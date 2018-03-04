@@ -13,6 +13,7 @@ RUN apk add --no-cache --virtual .build-deps unzip curl && cd /tmp \
     && unzip aria2-ng.zip -d /aria2-ng\
 	&& rm -rf aria2-ng.zip \
     && apk del .build-deps
+RUN addgroup -g 1000 download&&adduser -G $GROUPNAME -S -u 1000 download
 
 ADD start.sh /conf-copy/start.sh
 ADD aria2.conf /conf-copy/aria2.conf
@@ -23,5 +24,7 @@ WORKDIR /
 VOLUME ["/conf"]
 EXPOSE 6800
 EXPOSE 80
+
+USER download
 
 CMD ["/conf-copy/start.sh"]
