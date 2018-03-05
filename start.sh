@@ -7,5 +7,5 @@ if [ ! -f /conf/aria2.conf ]; then
 fi
 touch /conf/aria2.session
 
-darkhttpd /aria2-ng --port 80 &
+darkhttpd /aria2-ng --port 8080 &
 aria2c --conf-path=/conf/aria2.conf
